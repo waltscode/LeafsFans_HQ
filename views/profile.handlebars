@@ -1,2 +1,36 @@
 Welcome {{name}}
 
+<h2>Your Blogs</h2>
+
+<ul>
+    {{#each blogs}}
+        {{#if (eq this.user.name name)}}
+            <li>
+                {{this.title}}
+                <button onclick="deleteBlog('{{this.id}}')">Delete</button>
+            </li>
+        {{/if}}
+    {{/each}}
+</ul>
+
+<script>
+    function deleteBlog(blogId) {
+        if (confirm("Are you sure you want to delete this blog?")) {
+            fetch(`/blogs/${blogId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                 console.log('Blog deleted');
+                 // Reload the page to show the changes - WASN't DOING THAT BEFORE
+                 window.location.reload();
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    }
+</script>

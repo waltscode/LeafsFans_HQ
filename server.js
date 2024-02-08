@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
+const methodOverride = require('method-override');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -11,7 +12,14 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({});
+// created a helper that compares two values and returns true if they are equal - used for the profile page grabbing the blogs made by a specific user
+const hbs = exphbs.create({
+    helpers: {
+        eq: function (a, b) {
+          return a === b;
+        },
+    },
+});
 
 
 const sess = {
@@ -40,6 +48,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+app.use(methodOverride('_method'));
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
