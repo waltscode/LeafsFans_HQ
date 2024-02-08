@@ -6,8 +6,18 @@
     <title>Document</title>
 </head>
 <body>
+<a href="/">Home</a>
+
+    {{#if logged_in}}
+        <a href="/profile">profile</a>
+        <a href="/logout">logout</a>
+    {{else}}
+        <a href="/login">sign in</a>
+    {{/if}}
 
     {{{body}}}
-    
+   
+
+
 </body>
 </html>

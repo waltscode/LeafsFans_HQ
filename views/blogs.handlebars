@@ -1,5 +1,10 @@
-{{#each blogData}}
-  <div class="blog-item">
-    <h2>{{json this}}</h2>
-  </div>
+<h1>{{title}}</h1>
+<p>{{content}}</p>
+<p>{{date}}</p>
+<p>{{user.name}}</p>
+
+{{#each comments}}
+<p>{{this.comment}}</p>
+<p>{{this.date}}</p>
+<p>{{this.user.name}}</p>
 {{/each}}

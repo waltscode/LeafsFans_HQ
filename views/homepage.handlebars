@@ -1,7 +1,8 @@
-{{#each blogData}}
+{{#each blogs}}
     <div class="blog-item">
-        <h2>{{title}}</h2>
-        <p>{{content}}</p>
-        <p>{{date}}</p>
+       <a href="/blogs/{{this.id}}"><h2>{{this.title}}</h2></a> 
+        <p>{{this.content}}</p>
+        <p>{{this.date}}</p>
+        <p>{{this.user.name}}</p>
     </div>
 {{/each}}
