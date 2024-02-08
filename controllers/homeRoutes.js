@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
             ],
                 
             order: [
-                // Will escape title and validate DESC against a list of valid direction parameters
+                // Will escape DATE and validate DESC against a list of valid direction parameters
+            // essentially MAKING NEW POSTS SHOW UP FIRST ON THE PAGE
                 ['date', 'DESC'],
             ],
         });
@@ -63,6 +64,22 @@ router.get('/blogs/:id', async (req, res) => {
     }
 });
 
+
+// Create a new blog post
+router.post('/blogs', async (req, res) => {
+    try {
+        const newBlog = await Blog.create({
+            title: req.body.title,
+            content: req.body.content,
+            user_id: req.session.user_id,
+        });
+        res.redirect('/');
+    } catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+});
+
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/');
@@ -87,6 +104,12 @@ router.get('/profile', withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+});
+
+router.get('/new-blog', withAuth, (req, res) => {
+    res.render('newBlog', {
+        logged_in: req.session.logged_in,
+    });
 });
 
 module.exports = router;
