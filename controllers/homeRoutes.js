@@ -110,6 +110,8 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+
+
 router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {

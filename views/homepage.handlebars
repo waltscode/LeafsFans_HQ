@@ -1,8 +1,17 @@
-{{#each blogs}}
-    <div class="blog-item">
-       <a href="/blogs/{{this.id}}"><h2>{{this.title}}</h2></a> 
-        <p>{{this.content}}</p>
-        <p>{{this.date}}</p>
-        <p>{{this.user.name}}</p>
-    </div>
-{{/each}}
+
+  
+    {{#each blogs}}
+      <div class="col-md-6" style="margin: 15px;">
+        <div class="card mb-1" style="border-radius: 8px; background-color: rgba(255, 255, 255, 0.7);">
+          <div class="card-body">
+            <a href="/blogs/{{this.id}}" class="no-link-highlight">
+              <h2 class="card-title">{{this.title}}</h2>
+            </a>
+            <p class="card-text">{{this.content}}</p>
+            <p class="card-text">Posted By: {{this.user.name}}</p>
+            <p class="card-text card-date">{{this.date}}</p>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  
