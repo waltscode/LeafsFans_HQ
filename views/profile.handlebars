@@ -1,11 +1,12 @@
-Welcome {{name}}
+<h1 class="prof-title">Welcome {{name}}!</h1>
 
-<h2>Your Blogs</h2>
+<h2 class="prof-title2">Your Blogs Contributed:</h2>
 
-<ul>
+<ul style="list-style: none;">
     {{#each blogs}}
         {{#if (eq this.user.name name)}}
-            <li>
+            <li class="prof-list">
+                 <img src="/images/leafslogo.png" alt="Logo" width="120" height="90">
                 {{this.title}}
                 <button onclick="deleteBlog('{{this.id}}')">Delete</button>
             </li>

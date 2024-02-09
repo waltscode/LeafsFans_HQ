@@ -1,13 +1,20 @@
+:root {
+    --leafs-blue:#0D44C2;
+   
+}
+
+
 body {
     background-image: url('/images/marner.jpeg');
     background-size: cover;
     height: 100vh;
+    font-family: 'Outfit', sans-serif;
 }
    
 /* Define a class to remove default link highlighting */
 .no-link-highlight {
     /* text-decoration: none; Remove underline */
-    color: #0D44C2; /* Use the default text color */
+    color: var(--leafs-blue); /* Use the default text color */
    
 }
 
@@ -23,3 +30,104 @@ a.no-link-highlight:hover {
     color: #6c757d;
 }
 
+
+
+/* NEW BLOG CSS STYLINGS */
+
+.blog-form-container {
+    margin: 20px;
+}
+
+.blog-form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 730px;
+    max-width: 100%;
+}
+
+.blog-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.blog-form input,
+.blog-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.blog-form button {
+    background-color: var(--leafs-blue);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.blog-form button:hover {
+    background-color: #45a049;
+}
+
+/* PROFILE PAGE STYLINGS */
+
+.prof-title {
+    font-size: 2rem;
+    color: var(--leafs-blue);
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.prof-title2 {
+    font-size: 1.5rem;
+    color: var(--leafs-blue);
+    margin-bottom: 20px;
+    margin-left: 50px;
+    text-decoration: underline;
+}
+
+.prof-list {
+    margin-left: 0px;
+    margin-bottom: 20px;
+   color: var(--leafs-blue);
+   font-size: x-large;
+
+}
+
+
+/* blog page/ comments section stylings */
+
+.blog-card {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .comments-card {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+
+  #leave-comment-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #leave-comment-btn:hover {
+    background-color: #2980b9;
+  }

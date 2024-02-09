@@ -1,10 +1,41 @@
-<h1>{{title}}</h1>
-<p>{{content}}</p>
-<p>{{date}}</p>
-<p>{{user.name}}</p>
 
-{{#each comments}}
-<p>{{this.comment}}</p>
-<p>{{this.date}}</p>
-<p>{{this.user.name}}</p>
-{{/each}}
+  <div class="container">
+    <div class="row">
+      <!-- Blog Card Column -->
+      <div class="col-md-6">
+        <div class="card blog-card">
+          <div class="card-body">
+            <h1 class="card-title">{{title}}</h1>
+            <p class="card-text">{{content}}</p>
+            <p class="card-text"><small class="text-muted">{{date}}</small></p>
+            <p class="card-text main-username">{{user.name}}</p>
+          </div>
+        </div>
+      </div>
+</div>
+      <!-- Comments Card Column -->
+   <div class="col-md-6">
+  <div class="card comments-card">
+    <div class="card-body">
+      <h5 class="card-title">Comments</h5>
+      <div class="comments-section">
+        {{#each comments}}
+          <div class="card comment">
+            <div class="card-body">
+              <p class="card-text comment-content">{{this.comment}}</p>
+              <p class="card-text comment-date">{{this.date}}</p>
+              <p class="card-text comment-username">{{this.user.name}}</p>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+      <a href="#comment-form" id="leave-comment-btn" class="btn btn-primary">Leave a Comment</a>
+    </div>
+  </div>
+</div>
+    
+  </div>
+
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
