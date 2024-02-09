@@ -65,6 +65,9 @@ router.get('/blogs/:id', async (req, res) => {
 });
 
 
+    
+
+
 // Create a new blog post
 router.post('/blogs', async (req, res) => {
     try {
@@ -102,6 +105,8 @@ router.delete('/blogs/:id', async (req, res) => {
 }
 );
 
+
+
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/');
@@ -135,5 +140,75 @@ router.get('/new-blog', withAuth, (req, res) => {
         logged_in: req.session.logged_in,
     });
 });
+
+router.get('/blogs/:id/comments', async (req, res) => {
+    try {
+        // Retrieve the specific blog post by ID with associated comments and user data
+        const blogData = await Blog.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+                {
+                    model: Comment,
+                    include: {
+                        model: User,
+                        attributes: ['name'],
+                    },
+                },
+            ],
+        });
+
+        // If the blog post with the given ID doesn't exist, return a 404 status
+        if (!blogData) {
+            res.status(404).json({ message: 'No blog found with this id!' });
+            return;
+        }
+
+        // Extract relevant data from the blog and comments
+        const blog = blogData.get({ plain: true });
+
+        // Check if comments exist before attempting to map over them
+        const comments = blog.comments || [];
+        console.log('THIS COMMENT', comments);
+
+        // Render the 'blogComments' view, passing the blog and associated comments
+        res.render('comments', { blog, comments, logged_in: req.session.logged_in });
+    } catch (err) {
+        // Handle errors
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.post('/blogs/:id/comments', async (req, res) => {
+    try {
+        // Check if the blog post with the given ID exists
+        const blogData = await Blog.findByPk(req.params.id);
+
+        // If the blog post doesn't exist, return a 404 status
+        if (!blogData) {
+            res.status(404).json({ message: 'No blog found with this id!' });
+            return;
+        }
+
+        // Create a new comment
+        const newComment = await Comment.create({
+            comment: req.body.comment, // Assuming the comment data is sent in the request body
+            user_id: req.session.user_id, // Set the user_id based on the session or authentication
+            blog_id: req.params.id, // Set the blog_id based on the route parameter
+        });
+
+        // If the comment is created successfully, return a 200 status
+        res.redirect(`/blogs/${req.params.id}`);
+        
+    } catch (err) {
+        // Handle errors
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;

@@ -1,0 +1,18 @@
+<h1>Blog Comments</h1>
+
+  <div id="comments-container">
+    {{#each comments}}
+      <p>
+        <strong>User:</strong> {{this.user.name}} <br>
+        <strong>Date:</strong> {{this.date}} <br>
+        <strong>Comment:</strong> {{this.comment}}
+      </p>
+    {{/each}}
+  </div>
+
+    <form id="commentForm" method="POST" action="/blogs/{{blog.id}}/comments">
+    <label for="comment">Add a Comment:</label>
+    <textarea id="comment" name="comment" rows="4" cols="50" required></textarea>
+    <br>
+    <button type="submit">Submit Comment</button>
+  </form>
