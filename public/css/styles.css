@@ -151,3 +151,21 @@ a.no-link-highlight:hover {
     cursor: pointer;
     font-size: 16px;
   }
+
+  /* logo stylings */
+
+  .custom-image-link {
+    display: block;
+    position: relative;
+    overflow: hidden; 
+}
+
+.custom-hover-transform {
+    height: 127px;
+    width: 677px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.custom-image-link:hover .custom-hover-transform {
+    transform: scale(0.96); 
+}
