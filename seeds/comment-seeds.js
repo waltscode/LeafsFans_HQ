@@ -2,7 +2,7 @@ const { Comment }  = require('../models');
 
 const commentData = [   
     {
-        comment: "I love this blog post!",
+        comment: "I've seen him do it! It was electric!",
         user_id: 3,
         blog_id:1,
           },
@@ -16,7 +16,7 @@ const commentData = [
                 blog_id:3,
                   },
                   {
-                    comment: "I love this blog post!",
+                    comment: "I had to call the cops on this guy! He's a menace!",
                     user_id: 3,
                     blog_id:1,
                       },
