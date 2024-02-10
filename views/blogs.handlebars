@@ -5,10 +5,10 @@
     <div class="col-md-7">
       <div class="card blog-card">
         <div class="card-body">
-          <h1 class="card-title">{{title}}</h1>
+          <h1 class="card-title" style="color:#0D44C2;">{{title}}</h1>
           <p class="card-text">{{content}}</p>
           <p class="card-text"><small class="text-muted">{{date}}</small></p>
-          <p class="card-text main-username">{{user.name}}</p>
+          <p class="card-text main-username" style="color:#0D44C2;">{{user.name}}</p>
         </div>
       </div>
     </div>
@@ -17,14 +17,14 @@
     <div class="col-md-7">
       <div class="card comments-card">
         <div class="card-body">
-          <h5 class="card-title">Comments</h5>
+          <h5 class="card-title"style="color:#0D44C2;">Comments</h5>
           <div class="comments-section">
             {{#each comments}}
               <div class="card comment">
                 <div class="card-body">
-                  <p class="card-text comment-content">{{this.comment}}</p>
-                  <p class="card-text comment-date">{{this.date}}</p>
-                  <p class="card-text comment-username">{{this.user.name}}</p>
+                  <p class="card-text comment-content" >{{this.comment}}</p>
+                  <p class="card-text card-date">{{this.date}}</p>
+                  <p class="card-text comment-username" style="color:#0D44C2;">{{this.user.name}}</p>
                 </div>
               </div>
             {{/each}}

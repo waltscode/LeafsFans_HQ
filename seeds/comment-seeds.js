@@ -17,7 +17,7 @@ const commentData = [
                   },
                   {
                     comment: "I had to call the cops on this guy! He's a menace!",
-                    user_id: 3,
+                    user_id: 2,
                     blog_id:1,
                       },
 
