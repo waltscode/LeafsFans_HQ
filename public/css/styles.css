@@ -5,10 +5,47 @@
 
 
 body {
-    background-image: url('/images/marner.jpeg');
+    background-image: url('/images/marner2.png');
     background-size: cover;
     height: 100vh;
     font-family: 'Outfit', sans-serif;
+}
+
+.col-md-6 {
+    margin: 15px;
+}
+
+.custom-button {
+    /* Default styles for screens larger than 1000px */
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    border-radius: 0;
+  }
+  .row-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+@media only screen and (max-width: 1000px) {
+    body {
+        background-image: url('/images/willy.png');
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    }
+    .custom-button {
+        /* Override styles for smaller screens here */
+        background-color: #7BCBFD75;
+        color: var(--leafs-blue);
+        border: 2px solid var(--leafs-blue);
+        padding: 5px 15px;
+        font-size: 16px;
+        border-radius: 5px;
+      }
+
 }
    
 /* Define a class to remove default link highlighting */
@@ -80,6 +117,19 @@ a.no-link-highlight:hover {
 
 /* PROFILE PAGE STYLINGS */
 
+.prof-card {
+    max-width: 600px; 
+    margin-left: 10px;
+    margin-right: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #CAE5F396; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: var(--leafs-blue);
+}
+
 .prof-title {
     font-size: 2rem;
     color: var(--leafs-blue);
@@ -150,6 +200,7 @@ a.no-link-highlight:hover {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-left: 30px;
   }
 
   /* logo stylings */

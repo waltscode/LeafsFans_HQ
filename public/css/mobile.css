@@ -1,0 +1,32 @@
+@media only screen and (max-width: 800px) {
+    .mobile-logo {
+        /* Styles for the logo on mobile screens */
+        height: 126px;
+        width: 413px;
+        margin-left: 136px;
+      }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .mobile-logo {
+      /* Styles for the logo on mobile screens */
+      height: 107px;
+      width: 356px;
+      margin-left: 103px;
+    }
+  }
+
+
+
+
+
+  @media only screen and (max-width: 500px) {       
+    .mobile-logo {
+      /* Styles for the logo on mobile screens */
+      height: 88px;
+      width: 282px;
+      margin-left: 65px;
+    }
+  }
