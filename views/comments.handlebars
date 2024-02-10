@@ -1,18 +1,36 @@
-<h1>Blog Comments</h1>
+ <div class="container">
+    <h1 style="color: #0D44C2; font-weight:600">Blog Comments</h1>
 
-  <div id="comments-container">
-    {{#each comments}}
-      <p>
-        <strong>User:</strong> {{this.user.name}} <br>
-        <strong>Date:</strong> {{this.date}} <br>
-        <strong>Comment:</strong> {{this.comment}}
-      </p>
-    {{/each}}
+    <div class="row">
+      <!-- Comments Card -->
+      <div class="col-md-6">
+        <div class="card comments-card">
+          <div class="card-body" id="comments-container">
+            {{#each comments}}
+              <div class="comment">
+                <p>
+                  <strong>User:</strong> {{this.user.name}} <br>
+                  <strong>Date:</strong> {{this.date}} <br>
+                  <strong>Comment:</strong> {{this.comment}}
+                </p>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Comment Form Card -->
+      <div class="col-md-6">
+        <div class="card comment-form-card">
+          <div class="card-body">
+            <form id="commentForm" method="POST" action="/blogs/{{blog.id}}/comments">
+              <label for="comment" style="color: #0D44C2; font-weight:500">Add a Comment:</label>
+              <textarea id="comment" name="comment" rows="4" cols="50" required></textarea>
+              <br>
+              <button type="submit" class="comment-button">Submit Comment</button>
+            </form>
+          </div>
+        </div>
+      </div>
   </div>
-
-    <form id="commentForm" method="POST" action="/blogs/{{blog.id}}/comments">
-    <label for="comment">Add a Comment:</label>
-    <textarea id="comment" name="comment" rows="4" cols="50" required></textarea>
-    <br>
-    <button type="submit">Submit Comment</button>
-  </form>
