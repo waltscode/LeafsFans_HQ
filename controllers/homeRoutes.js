@@ -182,7 +182,7 @@ router.get('/blogs/:id/comments', async (req, res) => {
     }
 });
 
-router.post('/blogs/:id/comments', async (req, res) => {
+router.post('/blogs/:id/comments', withAuth, async (req, res) => {
     try {
         // Check if the blog post with the given ID exists
         const blogData = await Blog.findByPk(req.params.id);
