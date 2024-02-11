@@ -21,16 +21,17 @@
     </div>
 
       <!-- Comment Form Card -->
-      <div class="col-md-6">
-        <div class="card comment-form-card">
-          <div class="card-body">
-            <form id="commentForm" method="POST" action="/blogs/{{blog.id}}/comments">
-              <label for="comment" style="color: #0D44C2; font-weight:500">Add a Comment:</label>
-              <textarea id="comment" name="comment" rows="4" cols="50" required></textarea>
-              <br>
-              <button type="submit" class="comment-button">Submit Comment</button>
-            </form>
-          </div>
-        </div>
+ <div class="row">
+  <div class="col-md-6">
+    <div class="card comment-form-card">
+      <div class="card-body">
+        <form id="commentForm" method="POST" action="/blogs/{{blog.id}}/comments">
+          <label for="comment" style="color: #0D44C2; font-weight:500">Add a Comment:</label>
+          <textarea id="comment" name="comment" rows="4" class="form-control" required></textarea>
+          <br>
+          <button type="submit" class="btn btn-primary">Submit Comment</button>
+        </form>
       </div>
+    </div>
   </div>
+</div>
